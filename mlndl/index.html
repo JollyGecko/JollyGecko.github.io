@@ -3,7 +3,7 @@ layout: default
 title: Deep Geecko
 ---
 	<h1>{{ page.title }}</h1>
-	<ul class="posts">
+	<ul class="mlndl">
 
 	  {% for mlndl in site.mlndl %}
 	    <li><span>{{ mlndl.date | date_to_string }}</span> » <a href="{{ mlndl.url }}" title="{{ mlndl.title }}">{{ mlndl.title }}</a></li>
