@@ -41,3 +41,12 @@ ul.mlndl {
 ul.mlndl li {
     list-style: none;
 }
+
+ul.pythonp { 
+    margin: 20px auto 40px; 
+    font-size: 1.5em;
+}
+
+ul.pythonp li {
+    list-style: none;
+}
