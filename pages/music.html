@@ -1,6 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Simple Music Player</title>
+    <!-- Load FontAwesome icons 
+      I'm not using this font. the imagesfor the play pause etc need to be created and loaded on the side -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <!-- Load the custom CSS style file -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <div class="player">
+      <!-- Define the section for displaying details -->
+      <div class="details">
+        <div class="playing">PLAYING x OF y</div>
+        <div class="trackArt"></div>
+        <div class="trackName"></div>
+        <div class="trackArtist"></div>
+        <div class="trackDets">Details</div>
+      </div>
+
+      <!-- Define the section for displaying track buttons -->
+      <div class="buttons">
+        <div class="ptrack_btn" onclick="mplayer.ptrack()">
+          <img class="ptrackicon" src="./icons/ptrackbtn.png" />
+        </div>
+        <div class="playpause_btn" onclick="mplayer.playpause()">
+          <img class="playpauseicon" src="./icons/playbtn.png" />
+        </div>
+        <div class="ntrack_btn" onclick="mplayer.ntrack()">
+          <img class="ntrackicon" src="./icons/ntrackbtn.png" />
+        </div>
+        <div class="fullstop_btn" onclick="mplayer.fullstop()">
+          <img class="fullstopicon" src="./icons/fstopbtn.png" />
+        </div>
+      </div>
+
+      <!-- Define the section for displaying the seek slider
+      <div class="slider_container">
+        <div class="currTime">00:00</div>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="0"
+          class="seekSlider"
+          onchange="mplayer.seekto()"
+        />
+        <div class="totalDur">00:00</div>
+      </div> -->
+
+      <!-- Define the section for displaying the volume slider-->
+      <div class="slider_container">
+        <i class="fa fa-volume-down"></i>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="99"
+          class="volumeSlider"
+          onchange="mplayer.setvolume()"
+        />
+        <i class="fa fa-volume-up"></i>
+      </div>
+    </div>
+
+    <!-- Load the main script for the player -->
+    <script src="script.js" defer></script>
+  </body>
+    
+    
+ <!--   
+ <head>
     <link rel="stylesheet" type="text/css" href="../styles/stylepage.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>C&eacute;sar Silva</title>
@@ -15,5 +89,5 @@
 </head>
 <body class="pagebody">
     
-</body>    
+</body>-->
 </html>
