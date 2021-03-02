@@ -1,0 +1,150 @@
+body {
+  background-color: rgb(229, 243, 204);
+
+  /* Smoothly transition the background color */
+  transition: background-color 0.5s;
+}
+
+/* Using flex with the column direction to 
+   align items in a vertical direction */
+.player {
+  height: 130vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.trackArt {
+  margin: 25px;
+  height: 750px;
+  width: 750px;
+  background-image: URL("https://upload.wikimedia.org/wikipedia/en/4/44/Treble_Clef_Barnstar.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 15%;
+}
+
+/* Changing the font sizes to suitable ones */
+.playing {
+  font-size: 1rem;
+}
+
+.trackName {
+  font-size: 3rem;
+}
+
+.trackArtist {
+  font-size: 1.5rem;
+}
+
+/* Using flex with the row direction to 
+   align items in a horizontal direction */
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.playpauseicon {
+  width: 100px;
+  height: 100px;
+}
+
+.ptrackicon,
+.ntrackicon {
+  width: 80px;
+  height: 60px;
+}
+
+.fullstopicon {
+  width: 50px;
+  height: 50px;
+}
+
+.ptrack_btn,
+.playpause_btn,
+.ntrack_btn,
+.fullstop_btn {
+  padding: 25px;
+  opacity: 0.7;
+
+  /* Smoothly transition the opacity */
+  transition: opacity 0.2s;
+}
+
+/* Change the opacity when mouse is hovered */
+.playpause_btn:hover,
+.ptrack_btn:hover,
+.ntrack_btn:hover,
+.fullstop_btn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Define the slider width so that it scales properly */
+.slider_container {
+  width: 75%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modify the appearance of the slider */
+.seekSlider,
+.volumeSlider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: black;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+/* Modify the appearance of the slider thumb */
+.seekSlider::-webkit-slider-thumb,
+.volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+/* Change the opacity when mouse is hovered */
+.seekSlider:hover,
+.volumeSlider:hover {
+  opacity: 1;
+}
+
+.seekSlider {
+  width: 60%;
+}
+
+.volumeSlider {
+  width: 30%;
+}
+
+.currTime,
+.totalDur {
+  padding: 10px;
+}
+
+.soundvol {
+  padding: 10px;
+  opacity: 0.9;
+}
