@@ -1,0 +1,14 @@
+      {
+        name: "Long Long Man",
+        artist: "Mitsuaki Imura",
+        image: "../music/longman.jpeg",
+        details: "Hakuhodo",
+        path: "../music/ringtone.mp3",
+      },
+      {
+        name: "Valdys' Abnegation",
+        artist: "The Classical C Experience",
+        image: "",
+        details: "",
+        path: "../music/Valdys' Abnegation.mp3",
+      },
