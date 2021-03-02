@@ -1,41 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
     <title>Simple Music Player</title>
-    <!-- Load FontAwesome icons 
-      I'm not using this font. the imagesfor the play pause etc need to be created and loaded on the side -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>C&eacute;sar Silva</title>
+    <div class="navbarpag">
+    <script>
+        $(function(){
+            $(".navbarpag").load("../elements/eltmspage.html")
+        });
+    </script>
+    </div>
     <!-- Load the custom CSS style file -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/stylemus.css" />
     <link rel="shortcut icon" href="#" />
   </head>
   <body>
     <div class="player">
       <!-- Define the section for displaying details -->
       <div class="details">
-        <div class="playing">PLAYING x OF y</div>
+        <div class="playing">x of y</div>
         <div class="trackArt"></div>
-        <div class="trackName"></div>
-        <div class="trackArtist"></div>
+        <div class="trackName">Song Name</div>
+        <div class="trackArtist">Artist</div>
         <div class="trackDets">Details</div>
       </div>
 
       <!-- Define the section for displaying track buttons -->
       <div class="buttons">
         <div class="ptrack_btn" onclick="mplayer.ptrack()">
-          <img class="ptrackicon" src="./icons/ptrackbtn.png" />
+          <img class="ptrackicon" src="../imgs/icons/ptrackbtn.png" />
         </div>
         <div class="playpause_btn" onclick="mplayer.playpause()">
-          <img class="playpauseicon" src="./icons/playbtn.png" />
+          <img class="playpauseicon" src="../imgs/icons/playbtn.png" />
         </div>
         <div class="ntrack_btn" onclick="mplayer.ntrack()">
-          <img class="ntrackicon" src="./icons/ntrackbtn.png" />
+          <img class="ntrackicon" src="../imgs/icons/ntrackbtn.png" />
         </div>
         <div class="fullstop_btn" onclick="mplayer.fullstop()">
-          <img class="fullstopicon" src="./icons/fstopbtn.png" />
+          <img class="fullstopicon" src="../imgs/icons/fstopbtn.png" />
         </div>
       </div>
 
@@ -55,7 +58,7 @@
 
       <!-- Define the section for displaying the volume slider-->
       <div class="slider_container">
-        <i class="fa fa-volume-down"></i>
+        <img class="soundvol" src="./icons/soundless.png" />
         <input
           type="range"
           min="1"
@@ -64,30 +67,11 @@
           class="volumeSlider"
           onchange="mplayer.setvolume()"
         />
-        <i class="fa fa-volume-up"></i>
+        <img class="soundvol" src="./icons/soundmore.png" />
       </div>
     </div>
 
     <!-- Load the main script for the player -->
-    <script src="script.js" defer></script>
+    <script src="../scripts/scriptmus.js" defer></script>
   </body>
-    
-    
- <!--   
- <head>
-    <link rel="stylesheet" type="text/css" href="../styles/stylepage.css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <title>C&eacute;sar Silva</title>
-    <div class="navbarpag">
-    <script>
-        $(function(){
-            $(".navbarpag").load("../elements/eltmspage.html")
-        });
-    </script>
-    </div>
-    <h2>Music</h2>
-</head>
-<body class="pagebody">
-    
-</body>-->
 </html>
