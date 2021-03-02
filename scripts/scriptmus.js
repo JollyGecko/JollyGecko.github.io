@@ -9,8 +9,8 @@ class sysVars {
     };
     this.playpause_btn = {
       query: document.querySelector(".playpause_btn"),
-      playbtn: '<img class="playpauseicon" src="./icons/playbtn.png" />',
-      pausebtn: '<img class="playpauseicon" src="./icons/pausebtn.png" />',
+      playbtn: '<img class="playpauseicon" src="../imgs/icons/playbtn.png" />',
+      pausebtn: '<img class="playpauseicon" src="../imgs/icons/pausebtn.png" />',
     };
     this.ntrack_btn = {
       query: document.querySelector(".ntrack_btn"),
@@ -35,7 +35,6 @@ class musicPlayer {
     this.updatetimer = 0;
     this.vars = new sysVars();
     this.numtracks = this.tracklist.length;
-    //this.setvolume();
     this.loadtrack(this.index);
     this.fullstop();
   }
@@ -45,36 +44,64 @@ class musicPlayer {
       {
         name: "Long Long Man",
         artist: "Mitsuaki Imura",
-        image: "./song/longman.jpeg",
+        image: "../music/longman.jpeg",
         details: "Hakuhodo",
-        path: "./song/ringtone.mp3",
+        path: "../music/ringtone.mp3",
       },
       {
-        name: "Mantee 5 (sample)",
+        name: "Valdys' Abnegation",
         artist: "The Classical C Experience",
         image: "",
         details: "",
-        path: "./song/Mantee 5 sample.mp3",
+        path: "../music/Valdys' Abnegation.mp3",
       },
     ];
 
     return this.tracklist[arg];
   }
 
-  trackdetsload(num) {
-    this.vars.details.trackName.textContent = this.tracklist[num].name;
-    this.vars.details.trackArtist.textContent = this.tracklist[num].artist;
-    this.vars.details.trackDets.textContent = this.tracklist[num].details;
+  trackdetsload() {
+    this.vars.details.trackName.textContent = this.tracklist[this.index].name;
+    this.vars.details.trackArtist.textContent = this.tracklist[
+      this.index
+    ].artist;
+    this.vars.details.trackDets.textContent = this.tracklist[
+      this.index
+    ].details;
     this.vars.details.trackArt.style.backgroundImage =
-      this.tracklist[num].image == ""
+      this.tracklist[this.index].image == ""
         ? "URL(https://upload.wikimedia.org/wikipedia/en/4/44/Treble_Clef_Barnstar.png)"
-        : "url(" + this.tracklist[num].image + ")";
+        : "url(" + this.tracklist[this.index].image + ")";
 
     this.vars.playing.textContent =
-      "PLAYING " + (num + 1) + " OF " + this.numtracks;
+      "Playing " + (this.index + 1) + " OF " + this.numtracks;
   }
 
-  /* seekupdate() {
+  resetvals() {
+    this.vars.seekSlider.value = 0;
+    this.vars.seekSlider.textContent = "00:00";
+    this.vars.currTime.textContent = "00:00";
+    this.vars.totalDur.textContent = this.track.duration.toString();
+    this.vars.totalDur = this.track.duration;
+  }
+
+  loadtrack() {
+    clearInterval(this.updatetimer);
+    this.track.src = this.tracklist[this.index].path;
+    this.track.load();
+    this.trackdetsload();
+    this.track.addEventListener(
+      "ended",
+      () => {
+        this.ntrack();
+      },
+      false
+    );
+    this.updatetimer = setInterval(this.seekupdate(), 1000);
+    //this.resetvals();
+  }
+
+  seekupdate() {
     if (!isNaN(this.track.duration)) {
       //NaN is not-a-number
       this.vars.seekSlider.value =
@@ -93,16 +120,6 @@ class musicPlayer {
       this.track.currentTime.textContent = cm + ":" + cs;
       this.vars.totalDur = dm + ":" + ds;
     }
-  } */
-
-  loadtrack(num) {
-    clearInterval(this.updatetimer);
-    this.track.src = this.tracklist[num].path;
-    this.track.load();
-    this.trackdetsload(num);
-    this.track.addEventListener("ended", this);
-    this.updatetimer = setInterval(this.seekupdate, 1000);
-    //this.vars.seekSlider.value = 0;
   }
 
   pause() {
@@ -122,23 +139,26 @@ class musicPlayer {
   }
 
   fullstop() {
-    this.track.currentTime = 0;
-    this.track.state = false;
-    this.vars.playpause_btn.query.innerHTML = this.vars.playpause_btn.playbtn;
-    return this.track.pause();
+    //this.resetvals();
+    this.track.state = this.pause();
   }
 
   ptrack() {
-    this.state =
+    this.track.state =
       this.index == 0
         ? this.fullstop()
-        : (this.index--, this.loadtrack(this.index), this.play());
+        : (this.index--,
+          this.loadtrack(),
+          this.track.state ? this.play() : this.fullstop());
   }
 
   ntrack() {
-    this.index == this.numtracks
-      ? this.fullstop()
-      : (this.index++, this.loadtrack(this.index), this.play());
+    this.track.state =
+      this.index == this.numtracks
+        ? this.fullstop()
+        : (this.index++,
+          this.loadtrack(),
+          this.track.state ? this.play() : this.fullstop());
   }
 
   setvolume() {
@@ -148,6 +168,8 @@ class musicPlayer {
   seekto() {
     this.track.currentTime =
       this.track.duration * (this.vars.seekSlider.value / 100);
+    this.vars.currTime = this.track.currentTime;
+    this.vars.totalDur = this.track.duration;
   }
 }
 
