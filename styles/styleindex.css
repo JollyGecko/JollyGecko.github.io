@@ -65,6 +65,11 @@ img{
     margin-right: auto;
 }
 
+img.resize{
+    width: 50%;
+    height: 50%;
+}
+
 .homebody{
     background-color: black;
     text-align:center;
