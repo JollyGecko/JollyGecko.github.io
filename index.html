@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="./styles/basestyle.css">
     <link rel="stylesheet" type="text/css" href="./styles/styleindex.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <title>C&eacute;sar Silva</title>
     <div class="navbar">
     <script>
         $(function(){
-            $(".navbar").load("./elements/eltms.html")
+            $(".navbar").load("./elements/eltms.html .navbar")
         });
     </script>
     </div>
@@ -15,14 +15,18 @@
 </head>
 <body class="homebody">
     <div id="body_header">
-        <h1 class="homeh1">C&eacute;sar Silva</h1>
+        <h1>C&eacute;sar Silva</h1>
     </div>
     <div id="body_body">
         <img src="imgs/me_ist.jpg">
         <h5 class="homeh5">Welcome to my personal blog!</h5>
     </div>
-    <div id="body_footer">
-        Created by C&eacute;sar Silva &copy; 2021
+    <div class="body_footer">
+        <script>
+            $(function(){
+                $(".body_footer").load("./elements/eltms.html .body_footer")
+            });
+        </script>
     </div>
 </body>
 </html>

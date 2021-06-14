@@ -1,7 +1,6 @@
 body {
-  background-color: rgb(229, 243, 204);
-
   /* Smoothly transition the background color */
+  background-color: black;
   transition: background-color 0.5s;
 }
 
@@ -25,9 +24,10 @@ body {
 
 .trackArt {
   margin: 25px;
-  height: 750px;
-  width: 750px;
+  height: 350px;
+  width: 350px;
   background-image: URL("https://upload.wikimedia.org/wikipedia/en/4/44/Treble_Clef_Barnstar.png");
+  background-color: lavender;
   background-size: cover;
   background-position: center;
   border-radius: 15%;
@@ -106,7 +106,7 @@ body {
   -moz-appearance: none;
   appearance: none;
   height: 5px;
-  background: black;
+  background: rgb(201, 32, 32);
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;

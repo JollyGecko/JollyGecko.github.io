@@ -1,44 +1,18 @@
-*{
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    /*color: lavender;*/
+#h1_about {
+  color: white;
 }
 
-.navbarpag {
-    background-color: lavender;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 15px;
+#h2_about {
+  text-align: center;
+  color: lavender;
+  padding: 30px;
 }
 
-.navbarpag ul {
-    padding:0;
-    list-style: none;
+.pagebody {
+  background-color: black;
 }
 
-.navbarpag li {
-    font-weight: bold;
-    font-size: 14px;
-    padding-right: 15px;
-    display:inline;
-    
-}
-
-.navbarpag a {
-    color: darkgrey;
-    text-decoration: none;
-}
-
-.navbarpag a:hover{
-    color:dimgrey;
-}
-
-.pagebody{
-    background-color: black;
-}
-
-.ctext{
-    margin: auto;
-    padding: 15px;
+.ctext {
+  margin: auto;
+  padding: 15px;
 }
