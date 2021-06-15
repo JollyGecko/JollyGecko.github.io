@@ -1,1 +1,1 @@
-# https://www.JollyGecko.github.io
+# JollyGecko.github.io
