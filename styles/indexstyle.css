@@ -8,6 +8,7 @@
 html, body {
     background-color: black;
     color: white;
+    /* font-family: monospace; */
     font-family: Helvetica, Arial, sans-serif;
     height: 100%;
     margin: 0;
@@ -28,6 +29,7 @@ html, body {
 }
 
 .name-container {
+    font-weight: bold;
     text-align: center;
     margin-bottom: 20px; /* Space between the name and the image */
 }
@@ -37,10 +39,13 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 70%;
     height: auto;
-    margin-bottom: 50px; /* Adjust margin as needed */
+    margin-top: -20px;
+    margin-bottom: -20px;
 }
+
+
 
 /* Image Styling */
 .image-container-index img {
@@ -56,12 +61,15 @@ html, body {
 .button-container {
     display: flex;
     justify-content: flex-end; /* Align buttons to the right */
-    margin-top: 10px; /* Space above buttons */
+    margin-top: 0; /* Space above buttons */
     gap: 15px; /* Space between buttons */
+    margin-bottom: 50px;
+    
 }
 
 /* Button Styling */
 .button {
+    font-weight: bold;
     background-color: black; /* Green background */
     color: white; /* White text */
     padding: 10px 20px; /* Padding around the button */
@@ -73,7 +81,24 @@ html, body {
     transition: background-color 3s ease; /* Smooth transition */
 }
 
+.buttonCesar{
+    font-weight: bold;
+    background-color: black; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around the button */
+    text-decoration: none; /* Remove underline */
+    font-size: 40px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 3s ease; /* Smooth transition */
+}
+
 /* Button Hover Effect */
 .button:hover {
+    background-color: #bc4444; /* Darker green on hover */
+}
+
+.buttonCesar:hover {
     background-color: #bc4444; /* Darker green on hover */
 }

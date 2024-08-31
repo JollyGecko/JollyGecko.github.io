@@ -36,7 +36,7 @@ body, html {
     width: 70%;
     padding: 20px;
     overflow-y: auto;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .static-content {
