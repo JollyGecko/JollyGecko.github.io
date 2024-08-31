@@ -1,32 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="./styles/basestyle.css">
-    <link rel="stylesheet" type="text/css" href="./styles/styleindex.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>César Silva</title>
+    <link rel="stylesheet" type="text/css" href="styles/general.css" />
+    <link rel="stylesheet" type="text/css" href="styles/indexstyle.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header-placeholder"></header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="name-container">
+            <h1>CÉSAR SILVA</h1>
+        </div>
+
+        <div class="image-container-index">
+            <img src="imgs/me_ist.jpg" alt="Me, at IST, circa 2019">
+        </div>
+    
+        <!-- Button Container -->
+        <div class="button-container">
+            <a href="files/CesarSilva_CV.pdf" download class="button">Resume</a>
+            <a href="https://github.com/JollyGecko" target="_blank" class="button">GitHub</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer-placeholder"></footer>
+
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <div class="navbar">
     <script>
-        $(function(){
-            $(".navbar").load("./elements/eltms.html .navbar")
+        $(document).ready(function(){
+            $("#header-placeholder").load("elements/nav.html");
+            $("#footer-placeholder").load("elements/footer.html");
         });
     </script>
-    </div>
-    
-</head>
-<body class="homebody">
-    <div id="body_header">
-        <h1>C&eacute;sar Silva</h1>
-    </div>
-    <div id="body_body">
-        <img src="imgs/me_ist.jpg">
-        <h5 class="homeh5">Welcome to my personal blog!</h5>
-    </div>
-    <div class="body_footer">
-        <script>
-            $(function(){
-                $(".body_footer").load("./elements/eltms.html .body_footer")
-            });
-        </script>
-    </div>
+
 </body>
 </html>

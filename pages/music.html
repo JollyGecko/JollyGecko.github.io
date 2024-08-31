@@ -1,76 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" type="text/css" href="../styles/basestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../styles/stylepage.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMusic</title>
+    
+    <!-- Include all necessary styles -->
+    <link rel="stylesheet" type="text/css" href="../styles/general.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/indexstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/musicstyle.css" />
+    
+    <!-- jQuery for loading navigation and other scripts -->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <div class="navbarpag">
-        <script>
-            $(function(){
-                $(".navbarpag").load("../elements/eltms.html .navbarpag")
-            });
-        </script>
-    </div>
-    <link rel="stylesheet" type="text/css" href="../styles/stylemus.css" />
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" href="#" />
-  </head>
-  <body>
+</head>
+<body>
+
+    <!-- Navigation Bar Placeholder -->
+    <header id="nav-placeholder"></header>
+
+    <!-- Music Player Section -->
     <div class="player">
-      <!-- Define the section for displaying details -->
-      <div class="details">
-        <div class="playing">x of y</div>
-        <div class="trackArt"></div>
-        <div class="trackName">Song Name</div>
-        <div class="trackArtist">Artist</div>
-        <div class="trackDets">Details</div>
-      </div>
+        <!-- Define the section for displaying details -->
+        <div class="details">
+            <div class="playing">x of y</div>
+            <div class="trackArt"></div>
+            <div class="trackName">Song Name</div>
+            <div class="trackArtist">Artist</div>
+            <div class="trackDets">Details</div>
+        </div>
 
-      <!-- Define the section for displaying track buttons -->
-      <div class="buttons">
-        <div class="ptrack_btn" onclick="mplayer.ptrack()">
-          <img class="ptrackicon" src="../imgs/icons/ptrackbtn.png" />
+        <!-- Define the section for displaying track buttons -->
+        <div class="buttons">
+            <div class="ptrack_btn" onclick="mplayer.ptrack()">
+                <img class="ptrackicon" src="../imgs/icons/ptrackbtn.png" />
+            </div>
+            <div class="playpause_btn" onclick="mplayer.playpause()">
+                <img class="playpauseicon" src="../imgs/icons/playbtn.png" />
+            </div>
+            <div class="ntrack_btn" onclick="mplayer.ntrack()">
+                <img class="ntrackicon" src="../imgs/icons/ntrackbtn.png" />
+            </div>
+            <div class="fullstop_btn" onclick="mplayer.fullstop()">
+                <img class="fullstopicon" src="../imgs/icons/fstopbtn.png" />
+            </div>
         </div>
-        <div class="playpause_btn" onclick="mplayer.playpause()">
-          <img class="playpauseicon" src="../imgs/icons/playbtn.png" />
-        </div>
-        <div class="ntrack_btn" onclick="mplayer.ntrack()">
-          <img class="ntrackicon" src="../imgs/icons/ntrackbtn.png" />
-        </div>
-        <div class="fullstop_btn" onclick="mplayer.fullstop()">
-          <img class="fullstopicon" src="../imgs/icons/fstopbtn.png" />
-        </div>
-      </div>
 
-      <!-- Define the section for displaying the seek slider
-      <div class="slider_container">
-        <div class="currTime">00:00</div>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="0"
-          class="seekSlider"
-          onchange="mplayer.seekto()"
-        />
-        <div class="totalDur">00:00</div>
-      </div> -->
-
-      <!-- Define the section for displaying the volume slider-->
-      <div class="slider_container">
-        <img class="soundvol" src="../imgs/icons/soundless.png" />
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="99"
-          class="volumeSlider"
-          onchange="mplayer.setvolume()"
-        />
-        <img class="soundvol" src="../imgs/icons/soundmore.png" />
-      </div>
+        <!-- Define the section for displaying the volume slider -->
+        <div class="slider_container">
+            <img class="soundvol" src="../imgs/icons/soundless.png" />
+            <input
+                type="range"
+                min="1"
+                max="100"
+                value="99"
+                class="volumeSlider"
+                onchange="mplayer.setvolume()"
+            />
+            <img class="soundvol" src="../imgs/icons/soundmore.png" />
+        </div>
     </div>
 
+    <footer id="footer-placeholder"></footer>
+    
     <!-- Load the main script for the player -->
     <script src="../scripts/scriptmus.js" defer></script>
-  </body>
+
+    <script>
+        $(document).ready(function(){
+            $("#nav-placeholder").load("../elements/nav.html");
+            $("#footer-placeholder").load("../elements/footer.html");
+        });
+    </script>
+    
+</body>
 </html>

@@ -41,17 +41,17 @@ class musicPlayer {
 
   loadlisttracks(arg) {
     this.tracklist = [
-      {
+/*      {
         name: "Long Long Man",
         artist: "Mitsuaki Imura",
         image: "../music/longman.jpeg",
         details: "Hakuhodo",
         path: "../music/ringtone.mp3",
-      },
+      },*/
       {
         name: "Valdys' Abnegation",
         artist: "The Classical C Experience",
-        image: "",
+        image: "../music/classicalcexp.png",
         details: "",
         path: "../music/Valdys' Abnegation.mp3",
       },
@@ -69,12 +69,12 @@ class musicPlayer {
       this.index
     ].details;
     this.vars.details.trackArt.style.backgroundImage =
-      this.tracklist[this.index].image == ""
-        ? "URL(https://upload.wikimedia.org/wikipedia/en/4/44/Treble_Clef_Barnstar.png)"
+      this.tracklist[this.index].image == "" ? 
+        "URL(https://upload.wikimedia.org/wikipedia/en/4/44/Treble_Clef_Barnstar.png)"
         : "url(" + this.tracklist[this.index].image + ")";
 
     this.vars.playing.textContent =
-      "Playing " + (this.index + 1) + " OF " + this.numtracks;
+      "Playing " + (this.index + 1) + " of " + this.numtracks;
   }
 
   resetvals() {
@@ -145,8 +145,8 @@ class musicPlayer {
 
   ptrack() {
     this.track.state =
-      this.index == 0
-        ? this.fullstop()
+      this.index == 0 ? 
+        this.fullstop()
         : (this.index--,
           this.loadtrack(),
           this.track.state ? this.play() : this.fullstop());
@@ -154,8 +154,8 @@ class musicPlayer {
 
   ntrack() {
     this.track.state =
-      this.index == this.numtracks
-        ? this.fullstop()
+      this.index == this.numtracks ? 
+        this.fullstop()
         : (this.index++,
           this.loadtrack(),
           this.track.state ? this.play() : this.fullstop());

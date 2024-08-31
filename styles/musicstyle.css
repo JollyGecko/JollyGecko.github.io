@@ -1,7 +1,6 @@
 body {
-  /* Smoothly transition the background color */
   background-color: black;
-  transition: background-color 0.5s;
+  transition: background-color 3.5s;
 }
 
 /* Using flex with the column direction to 
