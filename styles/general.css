@@ -1,0 +1,69 @@
+/* Spacer for custom spacing if needed */
+.spacer {
+    height: 100px; /* Adjust the value as needed */
+}
+
+header, footer {
+    width: 100%;
+    background-color: grey; /* Set background color of header/footer */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase; /* Make the text all capitals */
+    position: relative;
+    z-index: 10;
+}
+
+/* Footer styles */
+footer {
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%; /* Ensure the footer takes the full width */
+    font-size: small;
+}
+
+/* Style for the Navigation Bar */
+nav {
+    width: 100%;
+    background-color: grey; /* Same color as header for seamless integration */
+    padding: 1px 0;
+}
+
+ul.navbar {
+    list-style-type: none; /* Remove default list styling */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: center; /* Center the nav items */
+}
+
+/* Style for Navigation Links */
+ul.navbar li {
+    margin: 0 15px; /* Add spacing between links */
+}
+
+ul.navbar li a {
+    text-decoration: none; /* Remove underline from links */
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px; /* Adjust the font size as needed */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+ul.navbar li a:hover {
+    color: #ddd; /* Change color on hover for effect */
+}
+
+.img-caption{
+    text-align: center;
+    font-size: small;
+}
+
+
+  .alotofspace {
+     margin-bottom: 20cm;
+  }
