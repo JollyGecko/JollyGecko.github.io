@@ -12,3 +12,10 @@
         details: "",
         path: "../music/Valdys' Abnegation.mp3",
       },
+      {
+        name: "The Chase",
+        artist: "The Classical C Experience",
+        image: "",
+        details: "",
+        path: "../music/The_Chase.mp3",
+      },

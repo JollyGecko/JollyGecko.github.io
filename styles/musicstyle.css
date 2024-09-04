@@ -43,6 +43,7 @@ body {
 
 .trackArtist {
   font-size: 1.5rem;
+    margin-bottom: 30px;
 }
 
 /* Using flex with the row direction to 
@@ -96,6 +97,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+    margin-bottom: 30px;
 }
 
 /* Modify the appearance of the slider */

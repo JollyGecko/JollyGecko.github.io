@@ -55,6 +55,13 @@ class musicPlayer {
         details: "",
         path: "../music/Valdys' Abnegation.mp3",
       },
+      {
+        name: "The Chase",
+        artist: "The Classical C Experience",
+        image: "../music/classicalcexp.png",
+        details: "",
+        path: "../music/The_Chase.mp3",
+      },
     ];
 
     return this.tracklist[arg];
