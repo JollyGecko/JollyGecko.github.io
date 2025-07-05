@@ -141,6 +141,21 @@ body, html {
     transition: all 0.8s ease;
 }
 
+.image-caption {
+    padding: 1.5rem;
+    background: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-style: normal;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 0 0 15px 15px;
+}
+
 /* Right side - text content */
 .text-content {
     flex: 1;
