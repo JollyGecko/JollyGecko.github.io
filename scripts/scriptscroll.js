@@ -1,29 +1,49 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Check if IntersectionObserver is supported
-  if (typeof window.IntersectionObserver !== 'undefined') {
-    const options = {
-      threshold: 0, // Trigger as soon as the section reaches the top of the viewport
-      rootMargin: '-100px 0px 0px 0px' // Trigger when the section reaches the top
-    };
+document.addEventListener("DOMContentLoaded", function() {
+        const scroller = scrollama();
 
-    const targets = document.querySelectorAll('.cb'); // Sections that will trigger the change
-    const locker = document.querySelector('.locker__container'); // Container holding the images
+        // Set up the scrollama instance
+        scroller
+            .setup({
+                step: '.text-step',
+                offset: 0.5,
+                debug: false
+            })
+            .onStepEnter(response => {
+                // Remove active class from all steps
+                document.querySelectorAll('.text-step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                
+                // Add active class to current step
+                response.element.classList.add('active');
+                
+                // Change the sticky image
+                const imageUrl = response.element.getAttribute('data-image');
+                const stickyImage = document.getElementById('sticky-image');
+                const imageContainer = document.getElementById('sticky-image-container');
+                
+                if (imageUrl) {
+                    // Add fade effect
+                    stickyImage.classList.add('image-fade');
+                    
+                    // Change image after fade starts
+                    setTimeout(() => {
+                        stickyImage.src = imageUrl;
+                        stickyImage.classList.remove('image-fade');
+                        imageContainer.classList.add('image-highlight');
+                        
+                        // Remove highlight after animation
+                        setTimeout(() => {
+                            imageContainer.classList.remove('image-highlight');
+                        }, 500);
+                    }, 200);
+                }
+            })
+            .onStepExit(response => {
+                // Remove active class when step exits
+                response.element.classList.remove('active');
+            });
 
-    function handleIntersection(entries) {
-      entries.forEach((entry) => {
-        const swapClass = entry.target.dataset.swap; // Class to swap from data attribute
-
-        if (entry.isIntersecting) {
-          // Show the corresponding image
-          locker.querySelectorAll('.image').forEach(img => img.classList.remove('active'));
-          locker.querySelector("." + swapClass).classList.add('active');
-        }
-      });
-    }
-
-    const observer = new IntersectionObserver(handleIntersection, options);
-    targets.forEach((target) => observer.observe(target));
-  } else {
-    console.log("IntersectionObserver is not supported in this browser.");
-  }
+        // Handle window resize
+        window.addEventListener('resize', scroller.resize);
 });

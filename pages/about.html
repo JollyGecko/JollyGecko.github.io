@@ -6,67 +6,73 @@
     <title>About Cesar Silva</title>
     <link rel="stylesheet" type="text/css" href="../styles/general.css" />
     <link rel="stylesheet" type="text/css" href="../styles/about.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
 </head>
 <body>
-
     <!-- Header -->
     <header id="header-placeholder"></header>
 
     <!-- Main Content -->
-    <div class="content-wrapper">
-        <div class="left-column">
-            <div class="static-content">
-                <img src="../imgs/me_viet.jpg" alt="In Hoi An" id="img1" class="sticky-image">
-                <div class="img-caption">This is me in Vietnam!!</div>
+    <div class="container">
+        <section class="about-section">
+            <!-- Left side - Sticky Image -->
+            <div class="image-container" id="sticky-image-container">
+                <img src="../imgs/me_viet.jpg"
+                     alt="In Hoi An" 
+                     class="sticky-image" 
+                     id="sticky-image">
             </div>
-<!--            <div class="static-content">
-                <img src="../imgs/me_ist.jpg" alt="ist" id="img2" class="dynamic-image">
-                <div class="img-caption">Ist</div>
-            </div>-->
-        </div>
-        <div class="right-column">
-            <section class="about-section">                
-                <p>I'm César, a software developer with a passion for music and books! I studied mathematics in college,
-                spending so much time in the realm of numbers even my dreams come with equations. I started this endeavour 
-                at University of Coimbra, before moving to IST in Lisbon for my master's.</p>
-                <br>
-                <p>Whether you are lost, or came here on purpose, welcome!</p>
-                <br>
-                <p>When I’m not busy calculating the probability of the universe aligning perfectly, 
-                    you can find me strumming my guitar, pretending my keyboard skills are something to write home about, 
-                    or rocking out with my band. 
-                    Yes, we’re quite serious about our music—so serious, in fact, that we occasionally take breaks from 
-                    our jam sessions to appreciate a good cup of tea.</p>
-                
-                <div class="img-body-div">
-                    <img src="../imgs/meconcert.webp" alt="That was some Franz Ferdinand, I think" id="img2" class="img-body">
-                    <div class="img-caption">Playing live in Lisbon</div>
-                </div>
-                
-                <p>Speaking of which, I’m such a tea aficionado that I built an app to rate my brews. 
-                    It’s like a glorified notepad, but with a lot more bugs.</p>
-                <br>
-                <p>By day, I’m a software developer for a well-known car manufacturer, 
-                    working on autonomous driving with C++. 
-                    In other words, I’m helping cars drive themselves while I sit back, sip my tea or read a book.</p>
-                <br>
-                <p>It generally comes as a shock to people that I have never seen Star Wars, so my only knowledge
-                about the Force is that it equal mass times acceleration.</p>
-                <br>
-                <p>AI totally, 100%, had no role in writing these cheesy, incoherent sentences. &#128513;</p>
 
-            </section>
-<!--            <section class="about-section">
-                <h2>Section 2</h2>
-                <p class="alotofspace">Content for section 2...</p>
-            </section>-->
-        </div>
+            <!-- Right side - Text Content -->
+            <div class="text-content">
+                <div class="text-step" data-step="0" data-image="../imgs/me_viet.jpg">
+                    <h2>Welcome</h2>
+                    <p>I'm César, a software developer with a side passion for music, books and puzzles! 
+                    I studied mathematics in college, with an emphasis in computational and applied mathematics, which mean I now dream in equations.</p>
+                    <p>I started this endeavor at University of Coimbra, before moving to IST in Lisbon for my master's.</p>
+                    <br>
+                    <p>Whether you are lost, or came here on purpose, welcome!</p>
+                    <br>
+                </div>
+
+                <div class="text-step" data-step="1" data-image="../imgs/me_amarante.jpg">
+                    <h2>Professional Growth</h2>
+                    <p>I started my path in software development in the insurance & banking sector. 
+                        This experience was transformative – I learned to work with real end clients, manage deadlines, and collaborate with diverse teams.
+                        The fast-paced environment pushed me to grow quickly and adapt to new technologies.</p>
+                    <p>From there, I went into the automotive industry, working on features for autonomous driving. 
+                        The research driven approach has presented a very interesting challenge, along with the criticality of the product, which lead me to 
+                        improve code in terms of safety.</p>
+                </div>
+
+                <div class="text-step" data-step="2" data-image="../imgs/me_marroco.jpg">
+                    <h2>About Me</h2>
+                    <p>When I'm not teaching C++ to a car, you can usually find me strumming my guitar, 
+                        pretending my keyboard skills are something to write home about, or rocking out with my band.</p>
+                    <div class="img-body-div">
+                        <img src="../imgs/meconcert.webp" alt="That was some Franz Ferdinand, I think" id="img2" class="img-body">
+                        <div class="img-caption">Playing live in Lisbon</div>
+                    </div>
+                    <p>Playing live gigs is one of the most thrilling things I do — there's something irreplaceable about connecting with people through music, in real time, at full volume.</p>
+                </div>
+
+                <div class="text-step" data-step="3" data-image="../imgs/me_tea.jpg">
+                    <p>I am also a great tea aficionado and enjoy discovering new blends. I even build an app to rate my brews.
+                        It's like a glorified notepad, but with a lot more bugs.</p>
+                    <br></br>
+                    <p>It generally comes as a shock to people that I have never seen Star Wars, so my only knowledge about the Force is that it equal mass times acceleration.</p>
+                    <p>This site is a place for me to share what I've been working on — from coding projects to personal thoughts, and maybe the occasional song or book recommendation.</p>
+                    <p>Thanks for stopping by, and feel free to explore or reach out!</p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
     <footer id="footer-placeholder"></footer>
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="../scripts/scriptscroll.js"></script>
     <script>
         $(document).ready(function(){
             $("#header-placeholder").load("../elements/nav.html");
