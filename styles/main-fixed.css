@@ -301,8 +301,40 @@ main {
         flex-direction: column
     }
 
+    /* Mobile: stack columns, make image panel full-width and non-sticky so it
+       doesn't overlap text. Also make embedded body images full-width. */
+    .two-col .left,
+    .two-col .right {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .image-panel {
+        position: static;
+        top: auto;
+        aspect-ratio: auto;
+        width: 100%;
+        margin-bottom: 18px;
+    }
+
     .image-panel .sticky-image {
-        height: 46vh
+        width: 100%;
+        height: 46vh;
+        object-fit: cover;
+    }
+
+    .image-panel .image-caption {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        border-radius: 0 0 8px 8px;
+        text-align: center;
+    }
+
+    .img-body {
+        width: 100%;
+        height: auto;
     }
 
     .hero h1 {
