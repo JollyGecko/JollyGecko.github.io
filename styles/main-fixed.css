@@ -1,0 +1,328 @@
+/* Canonical stylesheet (main-fixed.css) — blue / dark-blue theme */
+:root {
+    --bg: #071428;
+    --bg-2: #0b2340;
+    --bg-mid: #123a63;
+    --bg-light: #2b6cb0;
+    --gradient-length: 4;
+    /* viewports; JS will override to match document height */
+    --card: #0f2540;
+    --card-2: #123a63;
+    --muted: #9fb4d6;
+    --accent: #60a5fa;
+    --accent-2: #1e40af;
+    --text-light: #e6f0fb;
+    --header-height: 64px;
+    --left-image-top-offset: 20px;
+    --hero-image-height: 100vh;
+    --sticky-image-height: 82vh;
+    --max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    /* visual gradient rendered by a fixed pseudo-layer so it can span multiple viewports */
+    background: transparent;
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    scroll-behavior: smooth
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 35%, var(--bg-mid) 65%, var(--bg-light) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% calc(var(--gradient-length) * 100vh);
+    background-position: top left;
+}
+
+/* Ensure main content and header/footer sit above the gradient layer */
+.site-header,
+main,
+.site-footer,
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fixed header that persists while scrolling */
+.site-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: var(--header-height);
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, rgba(2, 10, 25, 0.78), rgba(2, 10, 25, 0.6));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px
+}
+
+.logo {
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.05rem
+}
+
+.site-nav a {
+    color: rgba(230, 240, 251, 0.9);
+    text-decoration: none;
+    margin-left: 18px;
+    font-weight: 600
+}
+
+.site-nav a.active {
+    color: var(--accent)
+}
+
+main {
+    padding-top: var(--header-height)
+}
+
+/* Hero */
+.hero {
+    /* Make the hero fit exactly in the viewport minus the fixed header */
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* place hero content on the right */
+    padding: 20px 20px 40px;
+    /* allow some bottom padding over the image */
+    box-sizing: border-box;
+    /* show top portion and overlay bottom with dark-blue */
+    background-image:
+        linear-gradient(to bottom, rgba(7, 20, 40, 0) 0%, rgba(7, 20, 40, 0) 45%, var(--bg) 85%),
+        linear-gradient(90deg, rgba(2, 10, 25, 0.5), rgba(2, 10, 25, 0.36)),
+        url('../imgs/me_lux.jpg');
+    background-size: cover;
+    /* center the focal point of the image vertically and horizontally */
+    /* center center in the center, center 40% */
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hero-inner {
+    max-width: var(--max-width);
+    color: var(--text-light);
+    text-align: right;
+    width: min(720px, 100%);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--text-light)
+}
+
+.hero p {
+    color: rgba(230, 240, 251, 0.85);
+    font-size: 1.05rem
+}
+
+/* Layout */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: var(--max-width);
+    margin: 100px auto 0;
+    /* small gap between hero and columns */
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
+.two-col {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    width: 100%
+}
+
+.two-col .left {
+    flex: 0 0 26%;
+    /* slightly smaller image column */
+    align-self: flex-start
+}
+
+.two-col .right {
+    flex: 1 1 70%
+}
+
+/* Image panel */
+.image-panel {
+    position: sticky;
+    top: calc(var(--header-height) + var(--left-image-top-offset));
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(2, 8, 20, 0.45);
+    background: linear-gradient(180deg, var(--card), var(--card-2));
+    aspect-ratio: 9/14;
+    /* keep panel proportions while resizing */
+}
+
+.image-panel .sticky-image {
+    width: 100%;
+    height: 100%;
+    /* fill the aspect-ratio panel */
+    object-fit: cover;
+    display: block;
+    transition: transform .45s ease, filter .35s ease, opacity .35s ease;
+}
+
+.image-panel .image-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0.64), rgba(2, 6, 23, 0.28));
+    color: var(--text-light);
+    text-align: center;
+    font-size: .9rem;
+    line-height: 1;
+    transition: opacity .18s ease, transform .18s ease;
+}
+
+.text-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(10, 28, 50, 0.04));
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(2, 8, 20, 0.2);
+    margin-bottom: 28px
+}
+
+.text-card h2 {
+    color: var(--accent-2);
+    margin-bottom: 10px
+}
+
+.text-card p {
+    color: var(--muted)
+}
+
+/* Footer */
+.site-footer {
+    max-width: var(--max-width);
+    margin: 60px auto 40px;
+    padding: 0 20px
+}
+
+.footer-line {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(96, 165, 250, 0.02));
+    border-radius: 1px
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0
+}
+
+.footer-copy {
+    color: rgba(230, 240, 251, 0.7)
+}
+
+.footer-icons {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.footer-icons .icon {
+    color: var(--text-light);
+    text-decoration: none
+}
+
+.footer-icons .icon svg {
+    fill: currentColor
+}
+
+/* Helpers used by JS */
+.image-fade {
+    opacity: .35;
+    filter: blur(2px)
+}
+
+.image-highlight {
+    transform: scale(1.02);
+    filter: brightness(1.03)
+}
+
+@media (max-width:900px) {
+    .two-col {
+        flex-direction: column
+    }
+
+    .image-panel .sticky-image {
+        height: 46vh
+    }
+
+    .hero h1 {
+        font-size: 2rem
+    }
+
+    .site-nav {
+        display: none
+    }
+
+    .header-inner {
+        padding: 12px 16px
+    }
+}
+
+/* Utilities */
+.muted {
+    color: var(--muted)
+}
+
+.accent {
+    color: var(--accent)
+}
+
+.img-body-div {
+    text-align: center;
+    padding: 10px;
+}
+
+.img-body {
+    border-radius: 10px;
+    width: 30%;
+    height: auto;
+}
+
+.bottom-three {
+    margin-bottom: 2cm;
+}
+
+/* End */
