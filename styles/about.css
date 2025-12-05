@@ -6,7 +6,8 @@
 }
 
 /* Ensure the body takes full height */
-body, html {
+body,
+html {
     height: 100%;
     font-family: Helvetica, Arial, sans-serif;
     background-color: black;
@@ -20,7 +21,7 @@ body, html {
     width: 100%;
     height: 100%;
     padding: 20px;
-    /* overflow-y: auto;*/ 
+    /* overflow-y: auto;*/
 }
 
 /* Left Column */
@@ -41,7 +42,8 @@ body, html {
 
 .static-content {
     position: sticky;
-    top: 20px; /* Adjusts how far from the top the sticky content stays */
+    top: 20px;
+    /* Adjusts how far from the top the sticky content stays */
 }
 
 .about-section {
@@ -64,46 +66,47 @@ body, html {
     margin-bottom: 15px;
 }
 
-.img-body-div{
-    text-align:center;
+.img-body-div {
+    text-align: center;
     padding: 10px;
 }
 
-.img-body{
+.img-body {
     border-radius: 10px;
     width: 50%;
     height: auto;
 }
 
 .about-wrapper {
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
-  gap: 40px;
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 40px;
 }
 
 .about-img-col {
-  flex: 0 0 300px;
-  position: sticky;
-  top: 40px;
-  align-self: flex-start;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex: 0 0 300px;
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .about-sticky-img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about-text-col {
-  flex: 1;
+    flex: 1;
 }
+
 .step {
-  margin-bottom: 120px;
+    margin-bottom: 120px;
 }
 
 /* Main container */
@@ -129,7 +132,7 @@ body, html {
     height: 70vh;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.8s ease;
 }
@@ -167,7 +170,7 @@ body, html {
     background: white;
     padding: 3rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
 }
 
@@ -177,7 +180,7 @@ body, html {
 
 .text-step.active {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .text-step h2 {
